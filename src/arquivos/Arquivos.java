@@ -1,0 +1,65 @@
+package arquivos;
+
+import java.io.File;
+import java.io.IOException;
+
+public class Arquivos {
+
+    public void eDirectorio(String directorio) {
+        File dir = new File(directorio);
+        if (dir.isDirectory()) System.out.println("É un directorio");
+        else System.out.println("Non é un directorio");
+    }
+
+    public void eFicheiro(String ficheiro) {
+        File file = new File(ficheiro);
+        if (file.isFile()) System.out.println("É un ficheiro");
+        else System.out.println("Non é un ficheiro");
+    }
+
+    public void creaDirectorio(String directorio) {
+        File dir = new File(directorio);
+        if (dir.exists()) System.out.println("O directorio xa existe");
+        else if (dir.mkdirs()) System.out.println("O directorio creouse correctamente");
+    }
+
+    public void creaFicheiro(String dirName, String fileName) {
+        File dir = new File(dirName);
+        if (dir.exists()) {
+            System.out.println("Existe o directorio");
+            File file = new File(dirName, fileName);
+            try {
+                if (file.createNewFile()) System.out.println("O ficheiro creouse correctamento");
+                else System.out.println("Xa existe un ficheiro co mesmo nome");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else System.out.println("Non existe o directorio");
+    }
+
+    public void modoAcceso(String dirName, String fileName) {
+        File file = new File(dirName, fileName);
+        if (file.exists()) {
+            if (file.canWrite()) System.out.println("Escritura si");
+            else System.out.println("Escritura non");
+            if (file.canRead()) System.out.println("Lectura si");
+            else System.out.println("Lectura non");
+        } else System.out.println("O ficheiro non existe");
+    }
+
+    public void calculaLonxitude(String dirName, String fileName) {
+        File file = new File(dirName, fileName);
+        if (file.exists()) {
+            System.out.println("Tamaño: " + file.length() + " B");
+        } else System.out.println("O ficheiro non existe");
+    }
+
+    public void mLectura(String dirName, String fileName) {
+        File file = new File(dirName, fileName);
+        if (file.exists()) {
+            if (file.setReadOnly()) System.out.println("Os permisos do ficheiro cambiáronse correctamente");
+            else System.out.println("Non foi posible cambiar os permisos do ficheiro");
+        } else System.out.println("O ficheiro non existe");
+    }
+}
