@@ -1,5 +1,6 @@
 package arquivos;
 
+import java.io.File;
 import java.util.Scanner;
 
 public class Main {
@@ -10,9 +11,7 @@ public class Main {
         String dirName = sc.nextLine();
         String fileName = sc.nextLine();
 
-        arquivos.modoAcceso(dirName, fileName);
-        arquivos.mLectura(dirName, fileName);
-        arquivos.modoAcceso(dirName, fileName);
-
+        File dir = new File(dirName);
+        arquivos.recur(dir);
     }
 }
