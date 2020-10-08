@@ -96,14 +96,12 @@ public class Arquivos {
         } else System.out.println("O directorio non existe");
     }
 
-    public void recur(File dir) {
+    /*public void recur(File dir) {
         if (dir.exists()) {
             String[] list = dir.list();
             for (int i = 0; i < list.length; i++) {
                 System.out.println(list[i]);
-                File f1 = new File(dir, list[i]);
-                if (f1.isDirectory()) mContido(f1.getAbsolutePath());
             }
         } else System.out.println("O directorio non existe");
-    }
+    }*/
 }

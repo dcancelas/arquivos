@@ -7,11 +7,9 @@ public class Main {
 
     public static void main(String[] args) {
         Arquivos arquivos = new Arquivos();
-        Scanner sc = new Scanner(System.in);
-        String dirName = sc.nextLine();
-        String fileName = sc.nextLine();
+        String dirName = "";
+        String fileName = "";
 
-        File dir = new File(dirName);
-        arquivos.recur(dir);
+        arquivos.mContido(dirName);
     }
 }
